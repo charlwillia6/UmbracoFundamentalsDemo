@@ -1,0 +1,14 @@
+{
+  "id": "ef1d9c34-0a58-4299-9311-57214ff6e13e",
+  "name": "Save Comment",
+  "form": "bed49362-aa73-4d7f-abaa-cf25049f3ea7",
+  "active": true,
+  "workflowTypeId": "89fb1e31-9f36-4e08-9d1b-af1180d340db",
+  "executesOn": "Approved",
+  "settings": {
+    "Fields": "{\"doctype\":\"blogItem\",\"nameField\":\"8eb355c3-ad0c-4037-8005-2c102378af24\",\"properties\":[{\"id\":\"bodyText\",\"value\":\"Body Text\",\"$$hashKey\":\"CJX\",\"field\":\"7259baad-caa7-46a3-b506-1ced1e749b47\"},{\"id\":\"summary\",\"value\":\"Summary\",\"$$hashKey\":\"CJY\"},{\"id\":\"tags\",\"value\":\"Tags\",\"$$hashKey\":\"CJZ\"}]}",
+    "Publish": "",
+    "RootNode": "1250"
+  },
+  "sortOrder": 0
+}

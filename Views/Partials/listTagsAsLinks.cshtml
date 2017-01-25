@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	var blogUrl = CurrentPage.Site().FirstChild("blogArea").Url;
+}
+
+@foreach (var tag in CurrentPage.Tags.Split(','))
+{
+	<a href="@blogUrl?tag=@tag">
+		@tag
+	</a>
+}

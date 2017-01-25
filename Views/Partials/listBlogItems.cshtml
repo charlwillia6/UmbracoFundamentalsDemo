@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+	var selection = CurrentPage.Site().FirstChild("blogArea").Children("blogItem").Where("Visible").OrderBy("CreateDate desc");
+	
+	@* If a tag is requested, filter selection to only those with a matching tag *@
+	var tag = Request["tag"];
+	if (!tag.IsNullOrWhiteSpace())
+	{
+		selection = selection.Where("tags.InvariantContains(@0)", tag);
+	}
+}
+<ul>
+	@foreach(var item in selection){
+		<li>
+			<strong><a href="@item.Url">@item.Name</a></strong>
+			<p>
+				@item.Summary
+				<br/>
+				@item.CreateDate.ToLongDateString() - @item.CreatorName
+			</p>
+		</li>
+	}
+</ul>

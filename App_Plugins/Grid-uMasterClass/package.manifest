@@ -1,0 +1,34 @@
+{
+    "gridEditors": [
+        {
+            "name": "Headline centered",
+            "alias": "headlineCentered",
+            "view": "textstring",
+            "icon": "icon-coin",
+            "config": {
+                "style": "font-size: 32px; text-align: center;",
+                "markup": "<h1 class='text-center'>#value#</h1>"
+            }
+        },
+        {
+            "name": "Paragraph",
+            "alias": "paragraph",
+            "view": "textstring",
+            "icon": "icon-notepad-alt",
+            "config": {
+                "style": "font-size: 16px;",
+                "markup": "<p>#value#</p>"
+            }
+        },
+        {
+            "name": "Paragraph centered",
+            "alias": "paragraphCentered",
+            "view": "textstring",
+            "icon": "icon-notepad-alt",
+            "config": {
+                "style": "font-size: 16px; text-align: center; max-width: 500px; margin: auto;",
+                "markup": "<p class='text-center'>#value#</p>"
+            }
+        }
+    ]
+}

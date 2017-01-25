@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.FaqArea>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "SubMaster.cshtml";
+}
+
+@Html.Partial("listFAQItems")
+<p>
+	<a href="AddQuestion" class="btn btn-primary">
+		Ask a question
+	</a>
+</p>

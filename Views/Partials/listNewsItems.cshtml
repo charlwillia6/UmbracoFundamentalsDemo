@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+	var selection = CurrentPage.Site().FirstChild("newsArea").Children("newsItem").Where("Visible").OrderBy("CreateDate desc");
+}
+<ul>
+	@foreach(var item in selection){
+		<li>
+			<strong><a href="@item.Url">@item.Name</a></strong>
+			<p>
+				@item.Summary
+				<br/>
+				@item.CreateDate.ToLongDateString() - @item.CreatorName
+			</p>
+		</li>
+	}
+</ul>
+

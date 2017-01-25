@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.BlogItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "SubMaster.cshtml";
+}
+
+<h3>@Umbraco.Field("summary")</h3>
+@Umbraco.Field("bodyText")
+
+<p>
+	@Html.Partial("displayGravatar")
+	@Umbraco.Field("creatorName")
+</p>
+<p>
+	<small>Filed under: @Html.Partial("listTagsAsLinks")</small>
+</p>
+<hr />
+@Html.Partial("listBlogComments")
+
+@Umbraco.RenderMacro("FormsRenderForm", new {FormGuid="bed49362-aa73-4d7f-abaa-cf25049f3ea7"})
+	
+@section sidebar
+{
+	@Html.Partial("sideNavigation")
+}

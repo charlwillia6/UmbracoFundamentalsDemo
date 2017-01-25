@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@* Using Umbraco Forms API *@
+@using Umbraco.Forms.Mvc.DynamicObjects;
+
+@{ var selection = Library.GetApprovedRecordsFromPage(CurrentPage.Id).OrderBy("Created");}
+
+@if (selection.Any())
+{
+	<ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<p>
+				<strong>
+					@if (string.IsNullOrEmpty(item.Website))
+					{
+						@item.Name
+					} else {
+						<a href="@item.Website">@item.Name</a>
+					}
+				</strong>
+				says:
+			</p>
+			<p>
+				@* Replace newlines with html <br> tags. Don't html-encode the output *@
+				@Html.Raw(item.Comment.Replace("\n", "<br />\n"))
+			</p>
+			<p>
+				<small>@item.Created.ToLongDateString()</small>
+			</p>
+		</li>
+	}
+	</ul>
+}

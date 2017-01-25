@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	// get the Umbraco API user service
+	var userService = ApplicationContext.Current.Services.UserService;
+	
+	// get the use that created the page being viewed
+	var user = userService.GetUserById(CurrentPage.CreatorId);
+	
+	// get the user's email and hash it
+	var email = user.Email.ToLowerInvariant().Trim();
+	var emailHash = Umbraco.CreateMd5Hash(email);
+	
+	// prepare url for getting the user's avatar
+	// gravatar parameters are SIZE and DEFAULT (user the Mystery Man)
+	var gravatar = "http://www.gravatar.com/avatar/" + emailHash + "?s=24&d=mm";
+}
+
+<img src="@gravatar" title="@CurrentPage.CreatorName"/>
